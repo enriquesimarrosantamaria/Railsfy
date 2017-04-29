@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #Definición de las rutas de las pages
   get '/home' => 'pages#home'
 
-  get '/profile' => 'pages#profile'
+  get '/user/:id' => 'pages#profile'
 
   get '/explore' => 'pages#explore' 
 
