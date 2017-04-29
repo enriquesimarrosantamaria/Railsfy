@@ -1,27 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Railsfy is a social network developed with Ruby on rails.
 
-Things you may want to cover:
+Here you have the configuration i'm using and gems used.
 
-* Ruby version
+* Ruby version: ruby 2.4.0p0
 
-* System dependencies
+* Rails version: Rails 5.0.2
 
 * Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Authentication with Devise: https://github.com/plataformatec/devise
+    You can test it displaying created users with ID (rails c): @u =User.find_by_id(1)
 
 * Bootstrap: https://github.com/twbs/bootstrap-sass
 
-* Authentication with Devise: https://github.com/plataformatec/devise
-    You can test it displaying created users with ID: @u =User.find_by_id(1)
+* Deployment instructions
+
