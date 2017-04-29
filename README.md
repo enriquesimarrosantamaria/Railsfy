@@ -21,4 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Bootstrap: https://github.com/twbs/bootstrap-sass
+
+* Authentication with Devise: https://github.com/plataformatec/devise
+    You can test it displaying created users with ID: @u =User.find_by_id(1)
