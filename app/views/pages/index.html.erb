@@ -1,2 +1,18 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !user_signed_in? #if the user is not signed in ,we will render this %> 
+    <style>
+        body{
+            background: url("/landscape.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .container-index
+    </style>
+
+    <div class="container">
+        <h1> Railsfy helps you to communicate with your friends! </h1>
+    </div>
+<% else%>
+    <script> document.location="/home"</script>
+<%end%>

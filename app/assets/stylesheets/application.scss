@@ -16,3 +16,20 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+  background-color: lightblue;
+}
+
+.navbar{
+  background-color: white;
+}
+.post-panel{
+  margin-top: -19px;
+}
+
+.g-links{
+  opacity: 0.4;
+  font-size: 120%;
+  margin-right: 25px;
+}
