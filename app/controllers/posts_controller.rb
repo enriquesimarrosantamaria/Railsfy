@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def delete
+    @u=User.find
+    @u.post.delete
+  end
+
   private
   def post_params #allows certain data to be passed via form_for
     params.require(:post).permit(:user_id, :content)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429215054) do
+ActiveRecord::Schema.define(version: 20170502082528) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
@@ -18,6 +18,26 @@ ActiveRecord::Schema.define(version: 20170429215054) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "resource_type"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,6 +57,12 @@ ActiveRecord::Schema.define(version: 20170429215054) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
   end
 
 end
