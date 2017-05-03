@@ -15,10 +15,16 @@ class PostsController < ApplicationController
     end
   end
 
-  def delete
-    @u=User.find
-    @u.post.delete
-  end
+  def destroy
+    @post = Post.find params[:id]
+    respond_to do |f|
+      if(@post.destroy)
+        f.html{ redirect_to "", notice: "Deleted!"}
+      else
+        f.html{ redirect_to "", notice: "Not deleted!"}
+      end
+    end
+end
 
   private
   def post_params #allows certain data to be passed via form_for

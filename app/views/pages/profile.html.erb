@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="jumbotron">
-            <p>Hi, <%= @username%> explore your profile!</p>
+            <p>Hi, <%= @username%> profile!</p>
 
         </div>
 
@@ -38,6 +38,8 @@
                     <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
                     <a href="">View conversation</a>
+                    <td><%= link_to 'delete', @p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
                     </p>
                 </div>
                 

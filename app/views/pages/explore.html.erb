@@ -5,23 +5,17 @@
           <div class="panel-body">
             <h5 style="color: grey; font-size: 125%;">Explore</h5>
             <p style="opacity: 0.5; font-size: 90%;">
+
+              <% if current_user.has_role? :admin %>
+                  Warning,you are on Admin mode!! <br><br>
+              <% end %>
               This page aggregates posts from ALL users. This means that you can find new people to follow,
               and your posts will also appear here so other people can see your opinions and interests and follow you
               if they chose.
             </p>
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-             <h5 style="color: grey; font-size: 125%;">Trends</h5>
-              <a href="">#Trend #1</a><br>
-                <span style="color: grey;">31k Posts</span><br><br>
-              <a href="">#Trend #2</a><br>
-                <span style="color: grey;">25k Posts</span><br><br>
-              <a href="">#Trend #3</a><br>
-                <span style="color: grey;">16k Posts</span><br><br>
-          </div>
-        </div>
+        
     </div>
     <div class="col-xs-6">
         <%= render '/components/post_form' %><% if user_signed_in? %> <br> <% end %> <br>
@@ -45,6 +39,11 @@
                 <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
                 <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
                 <a href="">View conversation</a>
+
+                <% if current_user.has_role? :admin %>
+                  <%= link_to 'delete', @p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+
               </p>
             </div>
             
