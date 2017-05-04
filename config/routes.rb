@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
+
   resources :relationships
   resources :users do
     member do
@@ -11,6 +13,11 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   resources :posts
+  resources :users, only: [:show, :destroy] do
+    resources :items, only: [:create, :show, :destroy]
+  end
+
+
   #Define the root URL
   root 'pages#index'
 
@@ -20,6 +27,8 @@ Rails.application.routes.draw do
   get '/user/:id' => 'pages#profile'
 
   get '/explore' => 'pages#explore'
+
+  delete '/user/:id' => 'users#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

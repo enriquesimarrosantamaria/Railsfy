@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    puts 'PRINT POSTS'
+    puts params[:id]
     @post = Post.find params[:id]
     respond_to do |f|
       if(@post.destroy)

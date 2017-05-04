@@ -63,11 +63,22 @@
                 <%= render '/components/follow_button',:user => User.find_by_username(params[:id]) %>
             </div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <% if current_user.has_role? :admin %>
+                    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <img alt="Brand" src="/dialog_warning.png">
+
+                <% end %>
+                
+            </div>
+        </div>
+        
     
     </div>
 </div>
 <!-- We start now with second row> -->
-<div class="row">
+<!--<div class="row">
     <div class="col-xs-3 col-xs-offset-9">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -77,4 +88,4 @@
     </div>
 
     
-</div>
+</div>-->

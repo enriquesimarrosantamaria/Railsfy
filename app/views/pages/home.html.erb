@@ -23,7 +23,7 @@
 
                 </div>
                 <div class="col-sm-11">
-                    <p class="post-title"> <%= User.find(@p.user_id).username %> - <%= @p.created_at.to_formatted_s(:short) %> </p>
+                    <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
                     <p class="post-content"> <%= @p.content %> </p>
                 </div>
 
@@ -44,10 +44,12 @@
     </div>
     <div class="col-xs-3">
         <div class="panel panel-default">
-            <div class="panel-body">
-                <p> About </p>
-                <%= render '/components/follow_button',:user => User.find_by_username(params[:id]) %>
-            </div>
+          <div class="panel-body">
+             <h5 style="color: grey; font-size: 125%;">Who to follow</h5>
+             <% for @u in @toFollow do %>
+               <p style="font-weight: bold; opacity: 0.85;" ><a href="/user/<%= @u.username %>"><%= @u.username %></a></p>
+             <% end %>
+          </div>
         </div>
     </div>
 

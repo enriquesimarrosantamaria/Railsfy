@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   #call the configured params
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  
   #protect the database while allowing these fiels to be updated
   protected
   def configure_permitted_parameters
@@ -11,4 +11,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:login,:username,:email, :password, :remember_me)}
     devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:username,:email, :password, :password_confirmation, :current_password)}
   end
+
 end

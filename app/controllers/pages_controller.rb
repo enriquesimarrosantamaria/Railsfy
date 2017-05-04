@@ -13,6 +13,8 @@ class PagesController < ApplicationController
 
     @posts = Post.where("user_id IN (?)", following)
     @newPost = Post.new
+    @toFollow = User.all.last(5)
+
   end
 
   def profile
