@@ -15,5 +15,7 @@ Here you have the configuration i'm using and gems used.
 
 * Bootstrap: https://github.com/twbs/bootstrap-sass
 
+* Roles: https://github.com/RolifyCommunity/rolify
+
 * Deployment instructions
 

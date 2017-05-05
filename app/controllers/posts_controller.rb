@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def new
-    @post=Post.new
+    @post=Post.new(post_params)
   end
 
   def create
@@ -14,6 +14,10 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  # def show
+  #     @post = Post.find params[:id]
+  # end
 
   def destroy
     puts 'PRINT POSTS'
@@ -30,6 +34,10 @@ end
 
   private
   def post_params #allows certain data to be passed via form_for
-    params.require(:post).permit(:user_id, :content)
+    params.require(:post).permit(:user_id, :content,:image)
   end
+  # private 
+  #   def permit_post
+  #     params.require(:post).permit(:image,:description)
+  #   end
 end

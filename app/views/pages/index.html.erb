@@ -11,11 +11,13 @@
     </style>
 
     <div class="container">
-        <h1> Railsfy helps you to communicate with your friends! </h1>
-        <br><br>
-        <div class="col-sm-2" style="text-align: right; margin-top: 5px;"><a href="/users/sign_in"><li type="button" class="btn btn-default" style="color: black; opacity: 1; font-weight: bold;">SIGN IN</li></a></div>
-        <div class="col-sm-2" style="text-align: right; margin-top: 5px;"><a href="/users/sign_up"><li type="button" class="btn btn-default" style="color: black; opacity: 1; font-weight: bold;">SIGN UP</li></a></div>
+        <div class="jumbotron">
+            <h1>Hi, friend!</h1>
+            <p>Railsfy helps you to communicate with your friends!</p>
+            <p><a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Sign In</a></p>
+            <p><a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Sign Up</a></p>
 
+        </div>
     </div>
 <% else%>
     <script> document.location="/home"</script>

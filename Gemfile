@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#For file attachment
+gem "paperclip", "~> 5.0.0"
 #For stablishing roles
 gem "rolify"
 #Devise Gem for authentication
