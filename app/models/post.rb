@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  acts_as_votable
   has_attached_file :image, styles: { medium: "200x200>", thumb: "60x60>" }, default_url: ""
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 

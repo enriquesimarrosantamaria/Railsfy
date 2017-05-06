@@ -30,7 +30,19 @@ class PostsController < ApplicationController
         f.html{ redirect_to "", notice: "Not deleted!"}
       end
     end
-end
+  end
+
+  def upvote 
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to :back
+  end
 
   private
   def post_params #allows certain data to be passed via form_for

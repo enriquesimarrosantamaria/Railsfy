@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#For likes
+gem 'acts_as_votable', '~> 0.10.0'
 #For file attachment
 gem "paperclip", "~> 5.0.0"
 #For stablishing roles

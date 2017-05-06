@@ -34,14 +34,27 @@
             
             <div class="col-sm-12">
               <p class="post-links">
-                <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
-                <a href="">View conversation</a>
+                
                 <% if current_user.has_role? :admin %>
-                  <%= link_to 'delete', @p, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Delete', @p, method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
+
+                <%= link_to like_post_path(@p), method: :put do %>
+                  <%= @p.get_upvotes.size %>
+                  Like
+                  <% if @p.get_upvotes.size >0%>
+                    <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
+                  <%else%>
+                    <span class="glyphicon glyphicon-heart-empty g-links" aria-hidden="true"></span>
+                  <%end%>
+                <% end %>
+
+                <%= link_to dislike_post_path(@p), method: :put do %>
+                  <%= @p.get_downvotes.size %>
+                  Dislike
+                <% end %>
+                <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
               </p>
             </div>
             
