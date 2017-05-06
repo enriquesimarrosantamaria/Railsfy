@@ -17,5 +17,7 @@ Here you have the configuration i'm using and gems used.
 
 * Roles: https://github.com/RolifyCommunity/rolify
 
+* File attachment: https://github.com/thoughtbot/paperclip
+
 * Deployment instructions
 
