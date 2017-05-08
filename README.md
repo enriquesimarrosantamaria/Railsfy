@@ -21,3 +21,13 @@ Here you have the configuration i'm using and gems used.
 
 * Deployment instructions
 
+# QUICK START
+
+* Clone the repo: git clone https://github.com/enriquesimarrosantamaria/Railsfy.git
+
+* Set up the gems: bundle install
+
+* Set up the database: rake db:migrate
+
+* Run the server: rails s
+

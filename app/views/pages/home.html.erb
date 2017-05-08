@@ -19,13 +19,15 @@
         <div class="panel panel-default post-panel">
             <div class="panel-body row">
                 <div class="col-sm-1">
-                    <img src="/avatar.png" class="rounded-img" height="35px" width="35px"></img>
+                    <p class="round-image-thumb"><%= image_tag(@p.user.avatar.url(:thumb)) %></p>
+
 
                 </div>
                 <div class="col-sm-11">
                     <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
                     <p class="post-content"> <%= @p.content %> </p>
-                    <p class="post-content"> <%= image_tag(@p.image.url(:medium))%> </p>
+                    
+
                 </div>
 
                 <div class="col-sm-12">
@@ -42,8 +44,8 @@
                         <% end %>
 
                         <%= link_to dislike_post_path(@p), method: :put do %>
-                        <%= @p.get_downvotes.size %>
-                        Dislike
+                            <%= @p.get_downvotes.size %>
+                            Dislike
                         <% end %>
                         <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
                         <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>

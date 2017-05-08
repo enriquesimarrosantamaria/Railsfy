@@ -36,3 +36,27 @@ body{
 .jumbotron {
      background-color:transparent !important;}
 
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    height: 120px;
+    width: 150px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 120% }
+}
+.round-image-thumb {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 140% }
+}

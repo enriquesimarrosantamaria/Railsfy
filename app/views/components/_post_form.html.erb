@@ -3,7 +3,7 @@
     <div class="panel-body row">
       
       <div class="col-sm-1">
-        <img src="/avatar.png" class="rounded-img" height="35px" width="35px"></img>
+          <p class="round-image-thumb"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
       </div>
       <div class="col-sm-11">
         <%= form_for @newPost ,html: { multipart: true } do |f| %>

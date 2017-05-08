@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   acts_as_voter
   rolify :before_add => :before_add_method
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def before_add_method(role)
     # do something before it gets added
@@ -43,4 +45,7 @@ class User < ApplicationRecord
     following.include?(other)
 
   end
+  # def show
+  #     @post = Post.find params[:id]
+  # end
 end

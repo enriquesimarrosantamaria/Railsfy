@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   resources :posts
-  resources :users, only: [:show, :destroy] do
+  resources :users, only: [:show, :destroy, :update] do
     resources :items, only: [:create, :show, :destroy]
   end
 
@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   get '/explore' => 'pages#explore'
 
   delete '/user/:id' => 'users#destroy'
+
+  patch '/user/:id' => 'users#update'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     end
 
     # GET /users/:id.:format
-    def show
-        #@user = User.find(params[:id])
+    def edit
+        @user = User.find(params[:id])
     end
     def new
         @user = User.new
@@ -28,10 +28,40 @@ class UsersController < ApplicationController
             end
         end
     end
-    
 
-    
+    def create
+        @user = User.create( user_params )
+    end
 
+   
+    
+    # def update
+    #     puts "UPDATE HERE"
+    #     puts params[:id]
+    #     @user = User.find_by_id(params[:id])
+    #     respond_to do |f|
+    #         if @user.update.(user_params)
+    #             puts "update - save"
+    #             f.html{ redirect_to "", notice: "User updated!"}
+    #         else
+    #             f.html{ redirect_to "", notice: "Error user not updated"}
+    #         end
+    #     end
+    # end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update_attribute(:avatar, params[:user][:avatar])
+    end 
+
+    private
+
+    # Use strong_parameters for attribute whitelisting
+    # Be sure to update your create() and update() controller methods.
+
+    def user_params
+        params.require(:user).permit(:id,:avatar)
+    end
    
 #   private
 #     # Confirms an admin user.

@@ -23,7 +23,7 @@
           <div class="panel-body row">
             
             <div class="col-sm-1">
-              <img src="/avatar.png" class="rounded-img" height="40px" width="40px"></img>
+                <p class="round-image-thumb"><%= image_tag(@p.user.avatar.url(:thumb)) %></p>
             </div>
             <div class="col-sm-11">
               <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
@@ -77,6 +77,7 @@
              <h5 style="color: grey; font-size: 125%;">Who to follow</h5>
              <% for @u in @toFollow do %>
                <p style="font-weight: bold; opacity: 0.85;" ><a href="/user/<%= @u.username %>"><%= @u.username %></a></p>
+               
              <% end %>
           </div>
         </div>
