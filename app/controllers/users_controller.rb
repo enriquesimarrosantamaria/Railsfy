@@ -53,6 +53,9 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update_attribute(:avatar, params[:user][:avatar])
     end 
+    def update_resource(resource, params)
+        resource.update_without_password(params)
+    end
 
     private
 

@@ -26,7 +26,8 @@
                 <div class="col-sm-11">
                     <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
                     <p class="post-content"> <%= @p.content %> </p>
-                    
+                    <p class="post-content"> <%= image_tag(@p.image.url(:medium))%> </p>
+
 
                 </div>
 
