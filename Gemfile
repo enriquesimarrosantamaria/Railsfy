@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'cowsay'
+#gem 'cowsay'
 #For likes
 gem 'acts_as_votable', '~> 0.10.0'
 #For file attachment
